@@ -1,0 +1,17 @@
+.bsp/
+bin/
+/db
+.eclipse
+.idea
+/lib/
+/logs/
+/modules
+/project/project
+/project/target
+/target
+tmp/
+test-result
+server.pid
+*.eml
+/dist/
+.cache
