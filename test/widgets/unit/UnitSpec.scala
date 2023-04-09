@@ -1,6 +1,6 @@
 package widgets.unit
 
-import controllers.widgets.WidgetForm
+import controllers.WidgetForm
 import org.scalatestplus.play.PlaySpec
 import play.api.data.FormError
 import play.api.i18n._

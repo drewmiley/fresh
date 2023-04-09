@@ -4,16 +4,16 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /helloworld                                    controllers.helloworld.HomeController.index()
-GET     /helloworld/explore                            controllers.helloworld.HomeController.explore()
-GET     /helloworld/tutorial                           controllers.helloworld.HomeController.tutorial()
+GET     /helloworld                                    controllers.HomeController.index()
+GET     /helloworld/explore                            controllers.HomeController.explore()
+GET     /helloworld/tutorial                           controllers.HomeController.tutorial()
 
 # Home page
-GET     /widgets                            controllers.widgets.WidgetController.index
+GET     /widgets                            controllers.WidgetController.index
 
 # Widgets
-GET     /widgets/widgets                    controllers.widgets.WidgetController.listWidgets
-POST    /widgets/widgets                    controllers.widgets.WidgetController.createWidget
+GET     /widgets/widgets                    controllers.WidgetController.listWidgets
+POST    /widgets/widgets                    controllers.WidgetController.createWidget
 
 
 # Map static resources from the /public folder to the /assets URL path

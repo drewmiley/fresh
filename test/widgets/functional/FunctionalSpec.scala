@@ -1,7 +1,6 @@
 package widgets.functional
 
-import controllers.routes
-import controllers.widgets.WidgetController
+import controllers.{WidgetController, routes}
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatestplus.play.PlaySpec
 import org.scalatestplus.play.guice.GuiceOneAppPerSuite

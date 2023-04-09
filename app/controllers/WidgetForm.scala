@@ -1,4 +1,4 @@
-package controllers.widgets
+package controllers
 
 object WidgetForm {
 

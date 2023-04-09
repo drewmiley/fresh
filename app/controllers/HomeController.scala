@@ -1,4 +1,4 @@
-package controllers.helloworld
+package controllers
 
 import play.api.mvc._
 
@@ -19,15 +19,15 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
    * a path of `/`.
    */
   def index() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index())
+    Ok(views.html.helloworld.index())
   }
   
   def explore() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.explore())
+    Ok(views.html.helloworld.explore())
   }
   
   def tutorial() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.tutorial())
+    Ok(views.html.helloworld.tutorial())
   }
   
 }
