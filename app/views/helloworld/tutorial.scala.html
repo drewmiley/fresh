@@ -53,7 +53,7 @@
       <p>Next, add an action method that will render the new page. To keep things simple, you will add the new
         controller to the existing class. In a real application, you can organize controllers in multiple classes if
         you wish.</p>
-      <p>Open the <code>app/controllers/HomeController.scala</code> file and add the following method:
+      <p>Open the <code>app/controllers/HelloWorldHomeController.scala</code> file and add the following method:
         <pre><code class="language-scala">def hello() = Action { implicit request: Request[AnyContent] =>
   Ok(views.html.hello())
 }</code></pre>
@@ -73,7 +73,7 @@
       <ol>
         <li>Open the <code>conf/routes</code> file.</li>
         <li>Below the <code>tutorial</code> page route, add the following line:
-          <p><code>GET /hello controllers.HomeController.hello</code></p>
+          <p><code>GET /hello controllers.HelloWorldHomeController.hello</code></p>
         </li>
       </ol>
       <p>Test the new page:</p>
@@ -91,7 +91,7 @@
         passes in a name. The steps include a deliberate mistake to demonstrate how Play provides useful feedback.</p>
       <p>To customize the Hello World greeting, follow these steps:</p>
       <ol>
-        <li>In the <code>app/controllers/HomeController.scala</code> file, modify the <code>hello</code> action
+        <li>In the <code>app/controllers/HelloWorldHomeController.scala</code> file, modify the <code>hello</code> action
           method to accept a <code>name: String</code> parameter. The modified action should look like the
           following:
           <pre><code class="language-scala">def hello(name: String) = Action {
@@ -100,7 +100,7 @@
         </li>
         <li>In the <code>conf/routes</code> file, add a <code>(name: String)</code> parameter at the end of the
           <code>/hello</code> route:
-          <p><code>GET /hello controllers.HomeController.hello(name: String)</code></p>
+          <p><code>GET /hello controllers.HelloWorldHomeController.hello(name: String)</code></p>
         </li>
         <li>In Twirl templates, all variables and their types must be declared. From the <code>app/views/</code>
           directory, open the <code>hello.scala.html</code> file and do the following:

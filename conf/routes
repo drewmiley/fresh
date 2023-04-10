@@ -4,9 +4,9 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /helloworld                                    controllers.HomeController.index()
-GET     /helloworld/explore                            controllers.HomeController.explore()
-GET     /helloworld/tutorial                           controllers.HomeController.tutorial()
+GET     /helloworld                                    controllers.HelloWorldHomeController.index()
+GET     /helloworld/explore                            controllers.HelloWorldHomeController.explore()
+GET     /helloworld/tutorial                           controllers.HelloWorldHomeController.tutorial()
 
 # Home page
 GET     /widgets                            controllers.WidgetController.index

@@ -9,7 +9,7 @@ import javax.inject._
  * application's home page.
  */
 @Singleton
-class HomeController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+class HelloWorldHomeController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
   /**
    * Create an Action to render an HTML page.
