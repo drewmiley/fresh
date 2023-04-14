@@ -1,4 +1,4 @@
-package scraper
+package scraperexample
 
 import net.ruippeixotog.scalascraper.browser._
 import net.ruippeixotog.scalascraper.dsl.DSL.Extract._
