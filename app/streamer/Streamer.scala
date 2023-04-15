@@ -1,14 +1,18 @@
 package streamer
 
 import akka.stream.scaladsl.Source
+import models.Fixture
 import scraper.Scraper
 
 trait Streamer {
 
-  def streamingSource: Source[String, _] = {
-    val iterable = (1 to 10).map(index => Scraper.document(index))
+  val filterTeam = "BLUE BELL A"
+
+  def streamingSource: Source[Fixture, _] = {
+    val totalFixturePages = Scraper.getTotalFixturePages
+    val iterable = (1 to totalFixturePages).flatMap(index => Scraper.getFixturesForPage(index, Option(filterTeam)))
     val source = Source(iterable)
-    source.takeWhile(d => d.hasText).map(_.title())
+    source
   }
 
 }

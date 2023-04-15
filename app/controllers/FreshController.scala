@@ -26,13 +26,12 @@ class FreshController @Inject()(cc: ControllerComponents, materializer: Material
     //    Create ticker source DONE
     //    Move wiki scraper into source DONE
     //    Display wiki scraping using comet for 1 to 5/10 times DONE
-
-    //    Create pool fixture scraper
-    //    Replace wiki scraper with pool fixture scraper for 1 to 5/10 times
-    //    Make it clever enough to stop at end of fixtures
-    //    Move out constants into env file
+    //    TODO: Create pool fixture scraper
+    //    Replace wiki scraper with pool fixture scraper for 1 to 5/10 times DONE
+    //    Make it clever enough to stop at end of fixtures DONE
+    //    TODO: Move out constants into env file
     Ok(views.html.fresh.index())
-    //    REFACTOR / CLEAN UP
+    //    REFACTOR / CLEAN UP DONE
   }
   
 }

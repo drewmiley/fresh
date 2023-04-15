@@ -19,7 +19,7 @@ object Scraper {
     0
   }
 
-  def getFixturesForPage(index: Int): List[Fixture] = {
+  def getFixturesForPage(index: Int, filterTeam: Option[String] = None): List[Fixture] = {
     val doc = document(index)
     List()
   }
