@@ -1,1 +1,1 @@
-Potential idea: stream harvest pool matches info off external site and live load (slow process, but would utilise ideas)
+What does this do: stream harvest pool matches info off external site and live load (slow process, but utilises a few ideas)
