@@ -8,11 +8,11 @@ trait Streamer {
 
   val filterTeam = "BLUE BELL A"
 
-  def streamingSource: Source[Fixture, _] = {
+  def streamingSource: Source[String, _] = {
     val totalFixturePages = Scraper.getTotalFixturePages
     val iterable = (1 to totalFixturePages).flatMap(index => Scraper.getFixturesForPage(index, Option(filterTeam)))
     val source = Source(iterable)
-    source
+    source.map(_.toString)
   }
 
 }
