@@ -16,21 +16,23 @@ class FreshController @Inject()(cc: ControllerComponents, materializer: Material
   }
 
   def streamClock() = Action {
-    Ok.chunked(stringSource via Comet.string("parent.clockChanged")).as(ContentTypes.HTML)
+    Ok.chunked(wikiSource via Comet.string("parent.clockChanged")).as(ContentTypes.HTML)
   }
 
   def index() = Action { implicit request: Request[AnyContent] =>
 //    TODO: How to implement \/
-    //    Load index
-    //    Add scala comet + link
-    //    Create ticker source
-    //    Move wiki scraper into source
-    //    Display wiki scraping using comet for 1 to 5/10 times
+    //    Load index DONE
+    //    Add scala comet + link DONE
+    //    Create ticker source DONE
+    //    Move wiki scraper into source DONE
+    //    Display wiki scraping using comet for 1 to 5/10 times DONE
+
     //    Create pool fixture scraper
     //    Replace wiki scraper with pool fixture scraper for 1 to 5/10 times
     //    Make it clever enough to stop at end of fixtures
     //    Move out constants into env file
     Ok(views.html.fresh.index())
+    //    REFACTOR / CLEAN UP
   }
   
 }
