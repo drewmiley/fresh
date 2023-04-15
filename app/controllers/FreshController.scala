@@ -1,23 +1,24 @@
 package controllers
 
+import akka.stream.Materializer
+import play.api.http.ContentTypes
+import play.api.libs.Comet
 import play.api.mvc._
+import streamer.Streamer
 
 import javax.inject._
 
-/**
- * This controller creates an `Action` to handle HTTP requests to the
- * application's home page.
- */
 @Singleton
-class FreshController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+class FreshController @Inject()(cc: ControllerComponents, materializer: Materializer) extends AbstractController(cc) with Streamer {
 
-  /**
-   * Create an Action to render an HTML page.
-   *
-   * The configuration in the `routes` file means that this method
-   * will be called when the application receives a `GET` request with
-   * a path of `/`.
-   */
+  def stream() = Action {
+    Ok(views.html.fresh.scalacomet())
+  }
+
+  def streamClock() = Action {
+    Ok.chunked(stringSource via Comet.string("parent.clockChanged")).as(ContentTypes.HTML)
+  }
+
   def index() = Action { implicit request: Request[AnyContent] =>
 //    TODO: How to implement \/
     //    Load index
