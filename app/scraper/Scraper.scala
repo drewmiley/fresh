@@ -16,7 +16,8 @@ object Scraper {
 
   def getTotalFixturePages: Int = {
     val doc = document(1)
-    0
+    val pageLink = doc.select(".pagination > li:nth-last-child(2) > a")
+    pageLink.text().toInt
   }
 
   def getFixturesForPage(index: Int, filterTeam: Option[String] = None): List[Fixture] = {

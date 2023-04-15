@@ -8,20 +8,10 @@ object ScraperTestApp {
     val doc = Scraper.document(1)
     val title = doc.title()
     println(title)
-//    val fixtures = Scraper.getFixturesForPage(1)
-//    println(fixtures)
     val totalPages = Scraper.getTotalFixturePages
     println(totalPages)
-//    val inTheNews = doc.select("#mp-itn b a")
-//    println(inTheNews)
-//    val onThisDay = doc.select("#mp-otd b a")
-//    println(onThisDay)
-//    val didYouKnow = doc.select("#mp-dyk b a")
-//    println(didYouKnow)
-//    val otds = for(otd <- onThisDay.asScala) yield (otd.attr("title"), otd.attr("href"))
-//    println(otds)
-//    val headers = for (otd <- onThisDay.asScala) yield otd.text
-//    println(headers)
+    val fixtures = Scraper.getFixturesForPage(1)
+    println(fixtures)
     println("RUNNING APP")
   }
 
