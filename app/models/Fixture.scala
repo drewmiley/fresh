@@ -1,3 +1,3 @@
 package models
 
-case class Fixture(text: String)
+case class Fixture(date: String, homeTeam: String, awayTeam: String)
