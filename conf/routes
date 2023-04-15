@@ -4,8 +4,8 @@
 # ~~~~
 
 GET     /fresh                                    controllers.FreshController.index()
-GET     /fresh/stream                             controllers.FreshController.stream()
-GET     /fresh/stream/live                        controllers.FreshController.streamClock()
+GET     /fresh/stream                             controllers.FreshController.streamIndex()
+GET     /fresh/stream/live                        controllers.FreshController.streamLoad()
 
 # An example controller showing a sample home page
 GET     /helloworld                                    controllers.HelloWorldHomeController.index()

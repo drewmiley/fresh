@@ -1,20 +1,16 @@
-@main("STREAM") {
+@main("STREAMING") {
 
-    <h1>Comet clock</h1>
+    <h1>Loading Stream</h1>
 
-    <div id="clock"></div>
-
-    <p>
-        Clock events are pushed from the Server using a Comet connection.
-    </p>
+    <div id="data"></div>
 
     <script type="text/javascript" charset="utf-8">
-            // Called for each Comet message
-            var clockChanged = function(time) {
-                document.getElementById('clock').innerHTML += `<p/>${time}`;
-            }
+        // Called for each Comet message
+        var streamLoaded = function(data) {
+            document.getElementById('data').innerHTML += `<p/>${data}`;
+        }
     </script>
 
-    <iframe id="comet" src="@routes.FreshController.streamClock().unique"></iframe>
+    <iframe id="comet" src="@routes.FreshController.streamLoad().unique"></iframe>
 
 }

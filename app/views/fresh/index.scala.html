@@ -1,11 +1,8 @@
-@()
-
 @main("Welcome") {
-@defining(play.core.PlayVersion.current) { version =>
 
-<h2>HEADING</h2>
-<div>
-  <div><a href="@routes.FreshController.stream()">Stream</a></div>
-</div>
-}
+    <h2>HEADING</h2>
+    <div>
+        <div><a href="@routes.FreshController.streamIndex()">Stream</a></div>
+    </div>
+
 }

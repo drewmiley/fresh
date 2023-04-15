@@ -11,12 +11,12 @@ import javax.inject._
 @Singleton
 class FreshController @Inject()(cc: ControllerComponents, materializer: Materializer) extends AbstractController(cc) with Streamer {
 
-  def stream() = Action {
+  def streamIndex() = Action {
     Ok(views.html.fresh.scalacomet())
   }
 
-  def streamClock() = Action {
-    Ok.chunked(wikiSource via Comet.string("parent.clockChanged")).as(ContentTypes.HTML)
+  def streamLoad() = Action {
+    Ok.chunked(wikiSource via Comet.string("parent.streamLoaded")).as(ContentTypes.HTML)
   }
 
   def index() = Action { implicit request: Request[AnyContent] =>
