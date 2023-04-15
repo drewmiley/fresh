@@ -16,7 +16,7 @@ class FreshController @Inject()(cc: ControllerComponents, materializer: Material
   }
 
   def streamLoad() = Action {
-    Ok.chunked(wikiSource via Comet.string("parent.streamLoaded")).as(ContentTypes.HTML)
+    Ok.chunked(streamingSource via Comet.string("parent.streamLoaded")).as(ContentTypes.HTML)
   }
 
   def index() = Action { implicit request: Request[AnyContent] =>
