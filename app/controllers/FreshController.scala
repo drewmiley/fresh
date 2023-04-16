@@ -20,18 +20,9 @@ class FreshController @Inject()(cc: ControllerComponents, materializer: Material
   }
 
   def index() = Action { implicit request: Request[AnyContent] =>
-//    TODO: How to implement \/
-    //    Load index DONE
-    //    Add scala comet + link DONE
-    //    Create ticker source DONE
-    //    Move wiki scraper into source DONE
-    //    Display wiki scraping using comet for 1 to 5/10 times DONE
-    //    TODO: Create pool fixture scraper
-    //    Replace wiki scraper with pool fixture scraper for 1 to 5/10 times DONE
-    //    Make it clever enough to stop at end of fixtures DONE
     //    TODO: Move out constants into env file
     Ok(views.html.fresh.index())
-    //    REFACTOR / CLEAN UP DONE
+    //    TODO: REFACTOR / CLEAN UP DONE
   }
   
 }

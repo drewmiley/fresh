@@ -1,7 +1,6 @@
 package streamer
 
 import akka.stream.scaladsl.Source
-import models.Fixture
 import scraper.Scraper
 
 trait Streamer {

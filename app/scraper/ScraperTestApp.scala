@@ -1,7 +1,5 @@
 package scraper
 
-import scala.jdk.CollectionConverters._
-
 object ScraperTestApp {
 
   def main(args: Array[String]): Unit = {
@@ -10,7 +8,7 @@ object ScraperTestApp {
     println(title)
     val totalPages = Scraper.getTotalFixturePages
     println(totalPages)
-    val fixtures = Scraper.getFixturesForPage(1)
+    val fixtures = Scraper.getFixturesForPage(1, Option("BLUE BELL A"))
     println(fixtures)
     println("RUNNING APP")
   }
