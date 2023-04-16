@@ -16,13 +16,13 @@ class FreshController @Inject()(cc: ControllerComponents, materializer: Material
   }
 
   def streamLoad() = Action {
-    Ok.chunked(streamingSource via Comet.string("parent.streamLoaded")).as(ContentTypes.HTML)
+//    TODO: Move filterTeam into templates
+    val filterTeam = Option("BLUE BELL A")
+    Ok.chunked(streamingSource(filterTeam) via Comet.string("parent.streamLoaded")).as(ContentTypes.HTML)
   }
 
   def index() = Action { implicit request: Request[AnyContent] =>
-    //    TODO: Move out constants into env file
     Ok(views.html.fresh.index())
-    //    TODO: REFACTOR / CLEAN UP DONE
   }
   
 }
