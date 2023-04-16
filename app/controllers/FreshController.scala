@@ -16,7 +16,7 @@ class FreshController @Inject()(cc: MessagesControllerComponents, materializer: 
   private val postUrl = routes.FreshController.indexSearch()
 
   def index() = Action { implicit request: MessagesRequest[AnyContent] =>
-    Ok(views.html.fresh.index(form, postUrl))
+    Ok(views.html.index(form, postUrl))
   }
 
   def indexSearch() = Action {  implicit request: MessagesRequest[AnyContent] =>
@@ -24,7 +24,7 @@ class FreshController @Inject()(cc: MessagesControllerComponents, materializer: 
           // This is the bad case, where the form had validation errors.
           // Let's show the user the form again, with the errors highlighted.
           // Note how we pass the form with errors to the template.
-          BadRequest(views.html.fresh.index(form, postUrl))
+          BadRequest(views.html.index(form, postUrl))
         }
 
         val successFunction = { search: Search =>
@@ -37,7 +37,7 @@ class FreshController @Inject()(cc: MessagesControllerComponents, materializer: 
   }
 
   def streamIndex() = Action { implicit request: MessagesRequest[AnyContent] =>
-    Ok(views.html.fresh.scalacomet())
+    Ok(views.html.scalacomet())
   }
 
   def streamLoad() = Action { implicit request: MessagesRequest[AnyContent] =>
