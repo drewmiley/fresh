@@ -7,26 +7,12 @@ GET     /fresh                                    controllers.FreshController.in
 GET     /fresh/stream                             controllers.FreshController.streamIndex()
 GET     /fresh/stream/live                        controllers.FreshController.streamLoad()
 
-# An example controller showing a sample home page
-GET     /helloworld                                    controllers.HelloWorldHomeController.index()
-GET     /helloworld/explore                            controllers.HelloWorldHomeController.explore()
-GET     /helloworld/tutorial                           controllers.HelloWorldHomeController.tutorial()
-
 # Home page
 GET     /widgets                            controllers.WidgetController.index
 
 # Widgets
 GET     /widgets/widgets                    controllers.WidgetController.listWidgets
 POST    /widgets/widgets                    controllers.WidgetController.createWidget
-
-
-GET        /streaming                                    controllers.StreamingHomeController.index()
-
-GET        /streaming/scala/comet                        controllers.ScalaCometController.index()
-GET        /streaming/scala/comet/liveClock              controllers.ScalaCometController.streamClock()
-
-GET        /streaming/scala/eventSource                  controllers.ScalaEventSourceController.index()
-GET        /streaming/scala/eventSource/liveClock        controllers.ScalaEventSourceController.streamClock()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

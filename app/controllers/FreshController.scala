@@ -16,7 +16,7 @@ class FreshController @Inject()(cc: ControllerComponents, materializer: Material
   }
 
   def streamLoad() = Action {
-//    TODO: Move filterTeam into templates
+//    TODO: Move filterTeam into templates and use forms
     val filterTeam = Option("BLUE BELL A")
     Ok.chunked(streamingSource(filterTeam) via Comet.string("parent.streamLoaded")).as(ContentTypes.HTML)
   }
