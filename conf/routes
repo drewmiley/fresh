@@ -4,15 +4,9 @@
 # ~~~~
 
 GET     /fresh                                    controllers.FreshController.index()
+POST    /fresh                                    controllers.FreshController.indexSearch()
 GET     /fresh/stream                             controllers.FreshController.streamIndex()
 GET     /fresh/stream/live                        controllers.FreshController.streamLoad()
-
-# Home page
-GET     /widgets                            controllers.WidgetController.index
-
-# Widgets
-GET     /widgets/widgets                    controllers.WidgetController.listWidgets
-POST    /widgets/widgets                    controllers.WidgetController.createWidget
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

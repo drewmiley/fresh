@@ -1,8 +1,21 @@
+@(form: Form[SearchForm.Search], postUrl: Call)(implicit request: MessagesRequestHeader)
+
 @main("Welcome") {
 
     <h2>HEADING</h2>
     <div>
-        <div><a href="@routes.FreshController.streamIndex()">Stream</a></div>
+        TODO
+        Name: BLUE BELL A (default)
+        Fixture Type: H/A/ALL (all default)
+        @helper.form(postUrl) {
+            @helper.CSRF.formField
+
+            @helper.inputText(form("name"))
+
+            @helper.inputText(form("fixtureType"))
+
+            <button>Stream fixtures</button>
+        }
     </div>
 
 }
