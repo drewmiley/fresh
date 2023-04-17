@@ -8,8 +8,9 @@
         // Called for each Comet message
         var streamLoaded = function(data) {
         //      TODO: Order fixtures correctly
-            document.getElementById('data').innerHTML += `${data}<p/>`;
+            document.getElementById('data').innerHTML += data;
         }
+<!--        document.getElementById('data').innerHTML.split("</div>")-->
     </script>
 
     <iframe id="comet" src="@routes.FreshController.streamLoad().unique"></iframe>
