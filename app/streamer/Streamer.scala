@@ -11,7 +11,7 @@ trait Streamer {
   def streamingSourceFuture(filterTeam: Option[String] = None): Future[Source[String, _]] = {
     Scraper.getTotalFixturePagesFuture map { totalFixturePages =>
       (1 to totalFixturePages)
-        .map(index => Scraper.getFixturesForPageFuture(index, filterTeam).map(_.mkString("<p/>")))
+        .map(index => Scraper.getFixturesForPageFutureAsHtml(index, filterTeam))
         .map(Source.future)
         .reduce((acc, d) => Source.combine(acc, d)(Merge(_)))
     }

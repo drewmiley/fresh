@@ -67,4 +67,7 @@ object Scraper {
     }
   }
 
+  def getFixturesForPageFutureAsHtml(index: Int, filterTeam: Option[String] = None): Future[String] =
+    getFixturesForPageFuture(index, filterTeam) map { fixturesForPage => s"<div id='${index}'>${fixturesForPage.mkString("<p/>")}</div>"}
+
 }
