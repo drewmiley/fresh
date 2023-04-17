@@ -1,5 +1,6 @@
 package scraper
 
+//  TODO: Remove - just in for testing
 object ScraperTestApp {
 
   def main(args: Array[String]): Unit = {
