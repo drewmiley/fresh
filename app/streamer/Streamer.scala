@@ -9,12 +9,11 @@ import scala.concurrent.Future
 trait Streamer {
 
   def streamingSourceFuture(filterTeam: Option[String] = None): Future[Source[String, _]] = {
-    val totalFixturePagesFuture = Scraper.getTotalFixturePagesFuture
-    totalFixturePagesFuture map { totalFixturePages =>
-      val listFutureString = (1 to totalFixturePages).map(index => Scraper.getFixturesForPageFuture(index, filterTeam)).toList
-      val listOfSources: List[Source[String, _]] = listFutureString.map(Source.future)
-      val source: Source[String, _] = listOfSources.reduce((a, b) => Source.combine(a, b)(Merge(_)))
-      source
+    Scraper.getTotalFixturePagesFuture map { totalFixturePages =>
+      (1 to totalFixturePages)
+        .map(index => Scraper.getFixturesForPageFuture(index, filterTeam).map(_.mkString("<p/>")))
+        .map(Source.future)
+        .reduce((acc, d) => Source.combine(acc, d)(Merge(_)))
     }
   }
 

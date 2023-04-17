@@ -45,7 +45,6 @@ class FreshController @Inject()(cc: MessagesControllerComponents, materializer: 
 //    TODO: Move filterTeam into templates and use forms
     val filterTeam = Option("BLUE BELL A")
     streamingSourceFuture(filterTeam) map { streamingSource =>
-//      TODO: Order fixtures correctly
       Ok.chunked(streamingSource via Comet.string("parent.streamLoaded")).as(ContentTypes.HTML)
     }
   }

@@ -51,7 +51,7 @@ object Scraper {
     }
   }
 
-  def getFixturesForPageFuture(index: Int, filterTeam: Option[String] = None): Future[String] = {
+  def getFixturesForPageFuture(index: Int, filterTeam: Option[String] = None): Future[List[Fixture]] = {
     val docFuture = documentFuture(index)
     docFuture map { doc =>
       val fixtures = doc.select("div.table-scroll > table > tbody > tr")
@@ -61,11 +61,9 @@ object Scraper {
         val away = fixture.select("td:nth-child(5) > a").text()
         Fixture(date, home, away)
       }
-//      TODO: Returns List[Fixtures] again
       newFixtures
         .filter(fixture => filterTeam.forall(List(fixture.homeTeam, fixture.awayTeam).contains(_)))
         .toList
-        .mkString("<p/>")
     }
   }
 
