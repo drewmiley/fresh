@@ -8,10 +8,10 @@
         // Called for each Comet message
         var streamLoaded = function(data) {
 <!--        TODO: NEED To split correctly -->
-            const split = document.getElementById('data').innerHTML.split("<br/>");
-            const ids = split.map(div => parseInt(div.substr(13, 2)));
-            const idsLessThan = ids.filter(id => id < parseInt(data.substr(13, 2))).length;
-            document.getElementById('data').innerHTML = split.slice(0, idsLessThan) + '<br/>' + data + split.slice(idsLessThan + 1);
+            const split = document.getElementById('data').innerHTML.split("<br>");
+            const ids = split.map(div => parseInt(div.substr(9, 2)));
+            const idsLessThan = ids.filter(id => id < parseInt(data.substr(9, 2))).length;
+            document.getElementById('data').innerHTML = split.slice(0, idsLessThan).join('<br>') + '<br>' + data + '<br>' + split.slice(idsLessThan + 1).join('<br>');
         }
     </script>
 
