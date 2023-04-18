@@ -1,16 +1,20 @@
 package streamer
 
-import akka.stream.scaladsl.Source
+import akka.stream.scaladsl.{Merge, Source}
 import scraper.Scraper
+
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
 trait Streamer {
 
-  def streamingSource(filterTeam: Option[String] = None): Source[String, _] = {
-    val totalFixturePages = Scraper.getTotalFixturePages
-//    TODO: Source should load one at a time, rather than all at once
-    val iterable = (1 to totalFixturePages).flatMap(index => Scraper.getFixturesForPage(index, filterTeam))
-    val source = Source(iterable)
-    source.map(_.toString)
+  def streamingSourceFuture(filterTeam: Option[String] = None): Future[Source[String, _]] = {
+    Scraper.getTotalFixturePagesFuture map { totalFixturePages =>
+      (1 to totalFixturePages)
+        .map(index => Scraper.getFixturesForPageFutureAsHtml(index, filterTeam))
+        .map(Source.future)
+        .reduce((acc, d) => Source.combine(acc, d)(Merge(_)))
+    }
   }
 
 }

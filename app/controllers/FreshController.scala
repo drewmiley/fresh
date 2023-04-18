@@ -8,6 +8,7 @@ import play.api.mvc._
 import streamer.Streamer
 
 import javax.inject._
+import scala.concurrent.ExecutionContext.Implicits.global
 
 @Singleton
 class FreshController @Inject()(cc: MessagesControllerComponents, materializer: Materializer) extends MessagesAbstractController(cc) with Streamer {
@@ -40,10 +41,12 @@ class FreshController @Inject()(cc: MessagesControllerComponents, materializer: 
     Ok(views.html.scalacomet())
   }
 
-  def streamLoad() = Action { implicit request: MessagesRequest[AnyContent] =>
+  def streamLoad() = Action.async { implicit request: MessagesRequest[AnyContent] =>
 //    TODO: Move filterTeam into templates and use forms
     val filterTeam = Option("BLUE BELL A")
-    Ok.chunked(streamingSource(filterTeam) via Comet.string("parent.streamLoaded")).as(ContentTypes.HTML)
+    streamingSourceFuture(filterTeam) map { streamingSource =>
+      Ok.chunked(streamingSource via Comet.string("parent.streamLoaded")).as(ContentTypes.HTML)
+    }
   }
   
 }
